@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Create = () => {
+
+    const [year,setyear] = useState(0)
+    const [image,setimage] = useState("")
+
+    
+
   return (
     <div style={{outline:'1px solid white', margin:'10px',padding:'20px',textAlign:'center', color:'white'}}>
         <h1>Add Pictures to your year!</h1>

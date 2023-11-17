@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema
 
-const TripsSchema = new mongoose.Schema(
+const TripsSchema = new Schema(
   {
     year: {
       type: Number,
@@ -9,7 +10,8 @@ const TripsSchema = new mongoose.Schema(
       max: [2023, "Date is in the future!"]
     },
     images: [{
-        ref: "Image"
+        type: Schema.Types.ObjectId,
+        ref:"images"
     }]
   },
   { timestamps: true }

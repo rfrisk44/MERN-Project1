@@ -23,8 +23,22 @@ module.exports.findOneSingleTrips = (req, res) => {
  
 // Create
 module.exports.createNewTrips = (req, res) => {
-    Trips.create(req.body)
+    const year = req.body.year
+    const images = req.file.filename
+    // const trips_id = req.file.trip_id
+    console.log("*************",images)
+    
+    const newTripData = {
+        year,
+        images,
+    }
+    const newTrip = new Trips(newTripData)
+    console.log('&&&&&&&&&&&&&&',newTrip)
+    // console.log('&&&&&&&&&&&&&&',newTrip.images)
+    newTrip.save()
         .then(newlyCreatedTrips => {
+            // console.log(newlyCreatedTrips,'=============')
+            // console.log('YYYYYYYYY',newTrip)
             res.json(newlyCreatedTrips)
         })
         .catch((err) => {
